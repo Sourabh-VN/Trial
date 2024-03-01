@@ -1,4 +1,4 @@
-pipeline{
+pipeline { 
     agent any
 
     stages{
@@ -12,7 +12,13 @@ pipeline{
 
         stage("Test"){
              steps{
+                checkError(buildResult: "SUCCESS", stageResult: "FAILURE"){
+            sh'''
+            sleep 5
             echo "Test"
+            exit 1
+            '''
+                }
         }
         }
 
