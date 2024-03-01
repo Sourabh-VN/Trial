@@ -12,7 +12,7 @@ pipeline {
 
         stage("Test"){
              steps{
-                checkError(buildResult: "SUCCESS", stageResult: "FAILURE"){
+                catchError(buildResult: "SUCCESS", stageResult: "FAILURE"){
             sh'''
             sleep 5
             echo "Test"
