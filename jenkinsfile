@@ -2,8 +2,8 @@ pipeline{
     agent any
 
     environment{
-        TEST1= "Test value1"
-        TEST2= "Test Value2"
+        TEST1 = "Test value1"
+        TEST2 = "Test Value2"
     }
 
     stages{
@@ -20,13 +20,7 @@ pipeline{
         stage ('Test') {
             steps
         {
-            catchError( buildResult: "SUCCESS", stageResult: "FAILURE" )
-         sh '''
-         echo $TEST1
-         sleep 5
-         exit 1
-         '''
-        
+        //
         }
 
         }
