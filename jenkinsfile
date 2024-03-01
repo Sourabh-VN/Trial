@@ -10,13 +10,9 @@ pipeline{
         stage ('Dev') {
             steps
         {
-            catchError(buildResult: "SUCCESS", stageResult: "FAILURE")
-         sh '''
+        
          echo $TEST1
-         sleep 5
-         exit 1
-         '''
-
+        
         }
 
         }
@@ -24,7 +20,13 @@ pipeline{
         stage ('Test') {
             steps
         {
-            echo "Test"
+            catchError( buildResult: "SUCCESS", stageResult: "FAILURE" )
+         sh '''
+         echo $TEST1
+         sleep 5
+         exit 1
+         '''
+        
         }
 
         }
