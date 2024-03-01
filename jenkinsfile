@@ -1,37 +1,22 @@
 pipeline{
     agent any
 
-    environment{
-        TEST1 = "Test value1"
-        TEST2 = "Test Value2"
-    }
-
     stages{
-        stage ('Dev') {
-            steps
-        {
-        
-         echo $TEST1
-        
+
+        stage('Dev'){
+            echo "DEV"
         }
 
+        stage("Test"){
+            echo "Test"
         }
 
-        stage ('Test') {
-            steps
-        {
-        // this is a null step
-        echo $$
-        }
-
-        }
-        
-        stage ('Build') {
-            steps
-        {
+        stage("Build"){
             echo "Build"
         }
-
-        }
+    
+    
     }
+
+
 }
