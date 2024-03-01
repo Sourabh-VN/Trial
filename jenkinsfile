@@ -20,7 +20,8 @@ pipeline{
         stage ('Test') {
             steps
         {
-        //
+        // this is a null step
+        echo $$
         }
 
         }
