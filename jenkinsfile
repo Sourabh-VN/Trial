@@ -42,7 +42,7 @@ pipeline {
         }
 
         stage("Test Multiple"){
-            parallels{
+            parallel {
         stage("Build"){
 
             when{
