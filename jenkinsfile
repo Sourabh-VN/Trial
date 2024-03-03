@@ -12,7 +12,7 @@ pipeline {
         stage('Dev'){
             when{
                 expression{
-                    params.DEV==TRUE
+                    params.DEV==true
                 }
             }
 
@@ -27,7 +27,7 @@ pipeline {
 
             when{
                 expression{
-                    params.TEST==TRUE
+                    params.TEST==true
                 }
             }
 
@@ -45,7 +45,7 @@ pipeline {
 
             when{
                 expression{
-                    params.BUILD==TRUE
+                    params.BUILD==true
                 }
             }
 
