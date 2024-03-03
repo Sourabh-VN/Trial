@@ -1,9 +1,22 @@
 pipeline { 
     agent any
 
+    parametrs {
+        booleanParam (name: "DEV", defaultValue: "TRUE", description: "This is a demo")
+        booleanParam (name: "TEST", defaultValue: "TRUE", description: "This is a demo")
+        booleanParam (name: "BUILD", defaultValue: "TRUE", description: "This is a demo")
+    }
+
     stages{
 
         stage('Dev'){
+            when{
+                expression{
+                    params.DEV==TRUE
+                }
+            }
+
+
             steps{
             echo "DEV"
         }
@@ -11,18 +24,31 @@ pipeline {
         }
 
         stage("Test"){
+
+            when{
+                expression{
+                    params.TEST==TRUE
+                }
+            }
+
              steps{
-                catchError(buildResult: "SUCCESS", stageResult: "FAILURE"){
+                
             sh'''
             sleep 5
             echo "Test"
-            exit 1
             '''
-                }
+            
         }
         }
 
         stage("Build"){
+
+            when{
+                expression{
+                    params.BUILD==TRUE
+                }
+            }
+
             steps{
             echo "BUILD"
         }
