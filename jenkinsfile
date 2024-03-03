@@ -1,10 +1,10 @@
 pipeline { 
     agent any
 
-    parametrs {
-        booleanParam (name: "DEV", defaultValue: "TRUE", description: "This is a demo")
-        booleanParam (name: "TEST", defaultValue: "TRUE", description: "This is a demo")
-        booleanParam (name: "BUILD", defaultValue: "TRUE", description: "This is a demo")
+    parameters {
+        booleanParam(name: "DEV", defaultValue: "TRUE", description: "This is a demo")
+        booleanParam(name: "TEST", defaultValue: "TRUE", description: "This is a demo")
+        booleanParam(name: "BUILD", defaultValue: "TRUE", description: "This is a demo")
     }
 
     stages{
