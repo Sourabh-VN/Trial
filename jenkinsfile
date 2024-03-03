@@ -41,6 +41,8 @@ pipeline {
         }
         }
 
+        stage("Test Multiple"){
+            parallels{
         stage("Build"){
 
             when{
@@ -53,7 +55,14 @@ pipeline {
             echo "BUILD"
         }
         }
-    
+
+        stage ("Temporary "){
+            steps{
+            echo "HI"
+        }
+        }
+            }
+        }
     
     }
 
