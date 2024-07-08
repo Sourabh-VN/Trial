@@ -1,0 +1,20 @@
+---
+
+- name: test_play
+  hosts: localhost
+  tasks:
+    - name: use of command option
+      command: ls -lrt
+      register: output1
+
+    - name: use of shell command
+      shell: 
+        touch testfile1
+        pwd
+        mkdir testdir1
+      register: output2
+
+    - name: print variables
+      debug:
+       var: output1
+       var: output2

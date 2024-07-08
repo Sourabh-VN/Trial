@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+   name: my-job
+spec:
+   activeDeadlineSeconds: 3
+   completions: 5
+   parallelism: 1
+   backoffLimit: 3
+   template:
+       spec:
+         containers:
+         - name: busybox
+           image: busybox
+           command: ["exit" , "1"]
+         restartPolicy: Never
+   

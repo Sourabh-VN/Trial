@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: my-headless
+spec:
+   clusterIP: None
+   selector:
+      app: nginx1
+   ports:
+    - name: my-stateful-set
+      port: 30005
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+   name: my-stateful-set
+spec:
+   selector:
+       matchLabels:
+              app: nginx1
+   replicas: 3
+   template:
+       metadata:
+           labels:
+              app: nginx1
+       spec:
+         containers:
+          - name: nginx
+            image: nginx
+            ports:
+             - containerPort: 80
+

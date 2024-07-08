@@ -1,0 +1,15 @@
+---
+
+- name: test_play
+  hosts: localhost
+  tasks:
+    - name: use of shell command
+      shell: 
+        touch testfile1
+        pwd
+        mkdir testdir1
+      register: output2
+
+    - name: print variables2
+      debug:
+       var: output2

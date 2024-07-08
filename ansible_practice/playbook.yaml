@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  name: firstplay
+  become: "true"
+  tasks:
+    - name: install some package
+      apt:
+        name: git
+        state: present

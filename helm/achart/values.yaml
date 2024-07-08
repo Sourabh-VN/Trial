@@ -1,1 +1,10 @@
-name: my_deployment
+name: mydeployment
+
+replicaCount: 2
+
+labelValue: ipapp
+
+image:
+   name: nginx
+   repo: nginx:1.14.2
+   portNumber: 80
